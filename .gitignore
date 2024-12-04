@@ -1,0 +1,8 @@
+.venv
+=======
+dataset
+venv
+best_cnn_model.keras
+cnn_model.h5
+emotion_cnn_model.keras
+gesture_Cnn_model.keras
