@@ -5,12 +5,12 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
 
-# Constants
+
 BATCH_SIZE = 32
 IMG_HEIGHT, IMG_WIDTH = 128, 128
 EPOCHS = 20
 
-# Step 1: Data Preparation
+
 def create_data_generators(train_dir, test_dir):
     """Creates training and testing data generators."""
     train_datagen = ImageDataGenerator(
@@ -40,9 +40,9 @@ def create_data_generators(train_dir, test_dir):
 
     return train_generator, test_generator
 
-# Step 2: Model Creation
+# Model Creation
 def create_cnn_model(num_classes):
-    """Creates a CNN model for classification."""
+    # Creates a CNN model for classification
     model = Sequential([
         Conv2D(32, (3, 3), activation='relu', input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)),
         MaxPooling2D(pool_size=(2, 2)),
@@ -57,16 +57,16 @@ def create_cnn_model(num_classes):
     ])
     return model
 
-# Step 3: Model Training
+# Model Training
 def train_and_save_model(train_dir, test_dir, num_classes, model_name):
-    """Trains the CNN model and saves the best model to disk."""
+   # Train Model 
     train_gen, test_gen = create_data_generators(train_dir, test_dir)
 
     model = create_cnn_model(num_classes)
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
     checkpoint = ModelCheckpoint(
-        f'{model_name}.keras',  # Save model with the provided name
+        f'{model_name}.keras',  # Save Model 
         save_best_only=True,
         monitor='val_accuracy',
         mode='max'

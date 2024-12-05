@@ -1,9 +1,9 @@
-import cv2   # OpenCV
+import cv2   
 import os
 import time
 import uuid
 
-# Set absolute path for image storage
+# image storage
 IMAGES_PATH = r'C:\Users\user\OneDrive\Desktop\minorproject\gesture\dataset\images\collectedimages'
 
 
@@ -11,7 +11,7 @@ labels = ['hello', 'thanks', 'yes', 'no', 'i love you']
 number_imgs = 15  # Number of images per label
 
 for label in labels:
-    # Create label directory
+    #  directory
     label_path = os.path.join(IMAGES_PATH, label)
     os.makedirs(label_path, exist_ok=True)
 
@@ -39,7 +39,7 @@ for label in labels:
         cv2.imshow('frame', frame)
         time.sleep(2)
 
-        # Stop if 'q' is pressed
+        # Stop == 'q' 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 

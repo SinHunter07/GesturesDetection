@@ -4,7 +4,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 import streamlit as st
 
-# Constants
+
 IMG_HEIGHT, IMG_WIDTH = 128, 128
 
 @st.cache_resource
@@ -28,7 +28,7 @@ def predict(model, frame):
     confidence = np.max(predictions)
     return predicted_class, confidence
 
-# Streamlit UI
+
 def main():
     st.title("Real-Time Gesture and Emotion Detection")
     
@@ -95,7 +95,7 @@ def main():
             cv2.putText(frame, gesture_label, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
             cv2.putText(frame, emotion_label, (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
 
-            # Convert frame to RGB for Streamlit
+            
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             video_placeholder.image(frame_rgb, channels="RGB")
 
@@ -104,9 +104,7 @@ def main():
             video_placeholder.empty()
             status_placeholder.warning("Detection stopped.")
 
-    # Reset the app
-    if reset_button:
-        st.experimental_rerun()
+   
 
 if __name__ == "__main__":
     main()
