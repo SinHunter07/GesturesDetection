@@ -1,0 +1,10 @@
+@font-face {
+  font-family: sk ;
+  src: url('./assets/Assistant-Bold.woff2');
+
+}
+
+@font-face{
+  font-family: sk1;
+  src:url('./assets/Assistant-Regular.woff2');
+}
